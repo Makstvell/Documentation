@@ -6,13 +6,46 @@
 
 ## 🔹 1. Класичне ML (алгоритми + ознаки)
 
-Алгоритми **SVM, kNN, RandomForest**:
+### Алгоритми **SVM, kNN, RandomForest**:
 - Це **класичні ML-алгоритми**, які не вчаться витягувати ознаки самостійно.  
 - Для роботи їм треба подати **features (ознаки)**, які попередньо витягуються з зображення.  
 
 ### Приклади ознак:
 - **SIFT, SURF, ORB, BRISK, FREAK** → локальні дескриптори ключових точок.  
 - **HOG** → глобальний дескриптор (градієнти орієнтовані по гістограмам).  
+
+### OpenCV і пошук ознак
+У Python за допомогою **OpenCV** можна легко отримати ці дескриптори:  
+
+```python
+import cv2
+
+# Завантаження зображення у відтінках сірого
+img = cv2.imread("image.jpg", cv2.IMREAD_GRAYSCALE)
+
+# --- Локальні дескриптори ---
+# SIFT
+sift = cv2.SIFT_create()
+kp, des = sift.detectAndCompute(img, None)
+
+# ORB (безкоштовна альтернатива SIFT/SURF)
+orb = cv2.ORB_create()
+kp, des = orb.detectAndCompute(img, None)
+
+# BRISK
+brisk = cv2.BRISK_create()
+kp, des = brisk.detectAndCompute(img, None)
+
+# --- Глобальний дескриптор ---
+# HOG
+hog = cv2.HOGDescriptor()
+des = hog.compute(img)
+```
+
+> ⚠️ Заувага:  
+> - **SIFT** і **SURF** знаходяться в модулі `opencv-contrib-python`, бо мають патенти (раніше були платними).  
+> - **ORB, BRISK, FREAK, HOG** доступні у звичайному OpenCV.  
+
 
 ### Залежність:
 ```
@@ -84,3 +117,43 @@ DL (нейронні мережі):
 - Тренування: SavedModel, .h5 (TF), .pt/.pth (PyTorch, зі state_dict)
 - ONNX → тільки inference
 ```
+
+# 🔹 7. Що можна тренувати у TensorFlow і PyTorch
+
+## TensorFlow / Keras
+Підтримує тренування більшості **класичних і мобільних моделей**:  
+- Класифікація: VGG, ResNet, DenseNet, Inception, MobileNet, EfficientNet  
+- Сегментація: U-Net, DeepLab, Mask R-CNN, Faster R-CNN (через TF Object Detection API)  
+- NLP: BERT, GPT-2, T5, XLNet (через HuggingFace)  
+- Аудіо: RNN, LSTM, Tacotron, DeepSpeech  
+
+## PyTorch
+Домінує у **нових SOTA-моделях (state of the art)**:  
+- CV: YOLOv5–v9 (Ultralytics), DETR, Segment Anything (SAM), Stable Diffusion, ResNet, ViT, ConvNeXt  
+- NLP: GPT-2/3, LLaMA, Falcon, Mistral, HuggingFace Transformers  
+- Генеративні моделі: Stable Diffusion, StyleGAN, CycleGAN  
+- Аудіо: Whisper, Wav2Vec2, HuBERT  
+
+## Обидва (TensorFlow + PyTorch)
+Завдяки HuggingFace і TF Hub можна тренувати в обох фреймворках:  
+- ResNet, EfficientNet, MobileNet, Inception, VGG  
+- Vision Transformers (ViT, Swin, DeiT)  
+- BERT, T5, DistilBERT, RoBERTa  
+- U-Net, DeepLab  
+
+---
+
+# 🔹 8. Ultralytics YOLO
+
+**Ultralytics** — компанія, яка створила YOLOv5 і розвиває сучасні YOLO (v5–v9).  
+Вони перенесли YOLO з Darknet (C/CUDA) у **PyTorch**, зробили бібліотеку `ultralytics` (pip), яка підтримує:  
+
+- Тренування: `yolo train ...`  
+- Інференс: `yolo predict ...`  
+- Оцінка: `yolo val ...`  
+- Експорт: `yolo export ...` (ONNX, TFLite, TensorRT, CoreML, SavedModel і т.д.)  
+
+👉 Важливо: **Ultralytics YOLO можна тренувати тільки в PyTorch**.  
+В TensorFlow модель можна експортувати, але **лише для інференсу**.  
+
+---
