@@ -4,25 +4,31 @@
 
 ---
 
-## 📦 1. Data Structures
-*Ordered from simplest to most complex*
+## 📊 0. Complexity Analysis
+*Start here — everything else builds on this foundation*
 
-### ⬜ Beginner
+- [ ] **Big O Notation** — O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ)
+- [ ] **Time Complexity** — how runtime scales with input size
+- [ ] **Space Complexity** — how memory usage scales with input size
+- [ ] **Analyzing Loops** — single, nested, and dependent loops
+- [ ] **Analyzing Recursion** — recursion tree method, recurrence relations
+- [ ] **Master Theorem** — shortcut for divide & conquer recurrences
+
+---
+
+## 📦 1. Data Structures
+
 - [ ] **Array** — indexing, iteration, in-place operations
 - [ ] **String** — manipulation, reversal, substring search
 - [ ] **Linked List** — singly, doubly, operations (insert, delete, reverse)
 - [ ] **Stack** — LIFO, push/pop, use cases
 - [ ] **Queue** — FIFO, enqueue/dequeue, circular queue
 - [ ] **Hash Map / Hash Set** — key-value storage, collision handling
-
-### 🟨 Intermediate
 - [ ] **Deque** — double-ended queue
 - [ ] **Binary Tree** — nodes, traversal (pre/in/post-order)
 - [ ] **Binary Search Tree (BST)** — insert, delete, search
 - [ ] **Heap / Priority Queue** — min-heap, max-heap, heapify
 - [ ] **Trie (Prefix Tree)** — insert, search, prefix matching
-
-### 🟥 Advanced
 - [ ] **Graph** — adjacency list, adjacency matrix, directed/undirected
 - [ ] **Segment Tree** — range queries, point updates
 - [ ] **Fenwick Tree (BIT)** — prefix sum with updates
@@ -32,17 +38,13 @@
 ---
 
 ## ⚙️ 2. Algorithms
-*Ordered from simplest to most complex*
 
-### ⬜ Beginner
 - [ ] **Linear Search** — O(n) search
 - [ ] **Binary Search** — O(log n) search on sorted arrays
 - [ ] **Bubble Sort** — simple comparison sort
 - [ ] **Selection Sort** — minimum selection
 - [ ] **Insertion Sort** — building sorted array step by step
 - [ ] **Recursion basics** — base case, recursive call, call stack
-
-### 🟨 Intermediate
 - [ ] **Merge Sort** — divide & conquer, stable, O(n log n)
 - [ ] **Quick Sort** — in-place, pivot, O(n log n) average
 - [ ] **Heap Sort** — sort using max-heap
@@ -51,8 +53,6 @@
 - [ ] **Topological Sort** — Kahn's algorithm (BFS-based)
 - [ ] **Dijkstra's Algorithm** — shortest path in weighted graph
 - [ ] **Binary Lifting / LCA** — Lowest Common Ancestor in a tree
-
-### 🟥 Advanced
 - [ ] **Bellman-Ford** — shortest path with negative weights
 - [ ] **Floyd-Warshall** — all-pairs shortest path
 - [ ] **Kruskal's / Prim's** — Minimum Spanning Tree
@@ -64,16 +64,12 @@
 ---
 
 ## 🧩 3. Problem-Solving Techniques
-*Ordered from simplest to most complex*
 
-### ⬜ Beginner
 - [ ] **Simulation** — model the problem directly, step by step
 - [ ] **Two Pointers** — left/right pointer on sorted array or string
 - [ ] **Sliding Window** — fixed or variable-size subarray/substring
 - [ ] **Prefix Sum** — fast range sum queries
 - [ ] **Hashing** — detect duplicates, frequency counting
-
-### 🟨 Intermediate
 - [ ] **Binary Search on Answer** — search for minimum/maximum condition
 - [ ] **Greedy** — interval scheduling, activity selection
 - [ ] **Backtracking** — permutations, combinations, N-Queens, Sudoku
@@ -81,8 +77,6 @@
 - [ ] **Monotonic Stack** — next greater/smaller element
 - [ ] **Two Heaps** — median in a data stream
 - [ ] **1D Dynamic Programming** — Fibonacci, Climbing Stairs, Coin Change
-
-### 🟥 Advanced
 - [ ] **2D Dynamic Programming** — LCS, Edit Distance, 0/1 Knapsack
 - [ ] **DP on Intervals** — Matrix Chain Multiplication
 - [ ] **DP on Trees** — diameter, max path sum
